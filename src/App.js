@@ -1,7 +1,4 @@
-/*global chrome*/
-
 import React, { Component } from 'react';
-import icon from './icon.png';
 import pizzaTruck from './pizza-truck.png';
 import Card from './cards/Cards.js';
 
@@ -10,7 +7,7 @@ const cardStyle = {
 };
 
 const topBarStyle = {
-    backgroundColor: '#19d799',
+    backgroundColor: '#6a7873',
     color: '#ffffff',
     height: '36px',
     paddingTop: '7px',
@@ -21,11 +18,10 @@ const topBarStyle = {
 class App extends Component {
     constructor() {
         super();
+
         this.state = {
             builds: []
         };
-
-        this.onButtonClicked = this.onButtonClicked.bind(this);
     }
 
     componentDidMount() {
@@ -41,7 +37,7 @@ class App extends Component {
             cache: 'default'
         };
 
-        fetch('https://api.travis-ci.org/builds', options)
+        fetch('https://api.travis-ci.org/builds?limit=5', options)
         .then(results => {
             return results.json();
         })
@@ -61,16 +57,6 @@ class App extends Component {
         });
     }
 
-    onButtonClicked() {
-        const notificationOptions = {
-            type: 'basic',
-            iconUrl: icon,
-            title: 'Test Notification',
-            message: 'Test Message'
-        }
-        chrome.notifications.create(null, notificationOptions, null);
-    }
-
     render() {
         return (
             <div className="App">
@@ -78,7 +64,7 @@ class App extends Component {
                     <div style={topBarStyle}>
                         <div>
                             <a>
-                                <img src={pizzaTruck} />
+                                <img src={pizzaTruck} alt={'Icon of a truck with pizza on top'}/>
                                 {' Delivery Guy'}
                             </a>
                         </div>

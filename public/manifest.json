@@ -15,6 +15,11 @@
       "default_title": "Travis Ci Build Watcher"
   },
   "background": {
-      "scripts": ["background.js"]
-  }
+      "scripts": ["/static/js/background.js"]
+  },
+  "permissions": [
+      "https://code.jquery.com/*",
+      "https://cdnjs.cloudflare.com/ajax/libs/popper.js/*",
+      "https://maxcdn.bootstrapcdn.com/bootstrap/*"
+  ]
 }
