@@ -1,0 +1,20 @@
+{
+  "short_name": "Travis Ci Watcher",
+  "name": "Travis Ci Build Watcher",
+  "manifest_version": 2,
+  "version": "1.0",
+  "icons": {
+      "24": "pizza-truck.png"
+  },
+  "permissions": [
+      "notifications",
+      "background"
+  ],
+  "browser_action": {
+      "default_popup": "index.html",
+      "default_title": "Travis Ci Build Watcher"
+  },
+  "background": {
+      "scripts": ["background.js"]
+  }
+}
